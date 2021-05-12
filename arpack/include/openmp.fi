@@ -1,0 +1,18 @@
+      real*8  omp_dot
+      integer*8 i_threads_y
+      logical openmpCell,openmpSolver
+      integer max_num_threads,num_threads,
+     .        thread_id,thread_begin,thread_end,thread_height,
+     .        max_num_threads_available,
+     .        nThreadsCell,nThreadsSolver
+      parameter (max_num_threads = 24)
+c$    include 'omp_lib.h'
+      common /omp_shared_buffer/ i_threads_y, 
+     .             thread_begin(max_num_threads),
+     .             thread_end(max_num_threads),
+     .             thread_height(max_num_threads)
+      common /omp_control/ num_threads,openmpCell,openmpSolver
+     .                   ,nThreadsCell,nThreadsSolver
+      common /omp_dot    / omp_dot
+      common /omp_private/ thread_id
+c$omp threadprivate(/omp_private/)

@@ -1,0 +1,6 @@
+      real*8  time,time0,get_time,timeArnold1,timeArnold2,timePcg
+     .       ,timeCsr
+      external get_time
+c ... simple
+      common /timectrl/ time,time0,timeArnold1,timeArnold2
+     .                , timePcg,timeCsr 
